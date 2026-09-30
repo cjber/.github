@@ -1,22 +1,30 @@
 # Contributing
 
-Thanks for helping. These notes apply to every WoW: Forever addon repository here; a repository's own
-`AGENTS.md` adds its specifics.
+Thanks for helping across these repositories. Start with the repository's `README.md` and, where present,
+`AGENTS.md`; follow any `SKILL.md` those files reference for the task. Agent-assisted contributions are
+welcome.
 
 ## Before you start
 
 - Open an issue before working on a feature, so the idea can be agreed before code is written. Small
   bug fixes can go straight to a pull request.
-- Report security problems privately, as [SECURITY.md](SECURITY.md) describes.
+- Report security problems privately, as [SECURITY.md](https://github.com/cjber/.github/blob/main/SECURITY.md)
+  describes.
 
 ## Code
 
-- The addons are Lua 5.1 running in the WoW: Forever client's sandbox: no `require`, and every file
-  the client loads is listed in the addon's `.toc`.
-- Never hand-edit generated files under `Data/`. Change the generator script (the file's header or
-  the repository's `AGENTS.md` names it) and regenerate.
-- Run the repository's gate before pushing. The exact commands are under **Commands** in its
-  `AGENTS.md`; CI runs the same gate.
+- Run the repository's checks before pushing. The canonical commands are in its `AGENTS.md` or `README.md`;
+  CI should run the same checks.
+- Preserve generated files according to the repository's instructions. If a file names a generator, change
+  that generator and regenerate its output.
+
+### WoW addons
+
+- Addons run Lua 5.1 in the WoW: Forever client's sandbox: no `require`, and every file the client loads is
+  listed in the addon's `.toc`.
+- Never hand-edit generated files under `Data/`. Change the named generator and regenerate.
+- Headless tests cannot cover every frame, menu, map pin or tracker path. List the remaining `/reload` checks
+  in the pull request.
 
 ## Commits
 
@@ -26,6 +34,4 @@ Thanks for helping. These notes apply to every WoW: Forever addon repository her
 
 ## Pull requests
 
-- Fill in the pull request template: why, what, the gate output, and in-game checks.
-- The tests run headless with stubbed client APIs. List anything they cannot reach (frames, menus, map
-  pins, the tracker) as `/reload` checks a reviewer can run in game.
+- Fill in the pull request template with why, what changed, and the actual check commands and results.
