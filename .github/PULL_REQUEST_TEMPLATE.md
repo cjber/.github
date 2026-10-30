@@ -19,3 +19,7 @@
 <!-- What the headless tests cannot reach, as steps to run after /reload. -->
 
 - [ ] `/reload`, then ...
+
+## Credits
+
+- [ ] A reporter or requester is credited in the changelog bullet and THIRD_PARTY.md (WFA-33)
